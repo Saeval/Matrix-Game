@@ -12,7 +12,7 @@ public class RandomMatrix extends JTextArea{
 	private static final int NUMERO_MINIMO_VOCALI = 45;
 	
 	private RandomLettersGenerator randomizer = new RandomLettersGenerator();
-	private ArrayList<Character> lettersInMatrix = new ArrayList<Character>();
+	private ArrayList<String> lettersInMatrix = new ArrayList<String>();
 	
 	public RandomMatrix() {
 		super();
@@ -34,10 +34,11 @@ public class RandomMatrix extends JTextArea{
 				append("\n");
 			
 			append(lettersInMatrix.get(i).toString());
+			System.out.print(lettersInMatrix);
 		}
 	}
 	
-	public ArrayList<Character> getLettersInMatrix() {
+	public ArrayList<String> getLettersInMatrix() {
 		return lettersInMatrix;
 	}
 	

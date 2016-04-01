@@ -21,7 +21,7 @@ public class InputField extends JTextField{
 //		return input;
 //	}
 
-	public int calcolaPunteggio(ArrayList<Character> arrayList) {
+	public int calcolaPunteggio(ArrayList<String> arrayList) {
 		int punteggio = 0;
 		
 		readFromField();
