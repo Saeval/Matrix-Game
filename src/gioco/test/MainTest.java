@@ -10,7 +10,7 @@ public class MainTest {
 		JFrame frame = new JFrame();
 		SuperPanel superPanel = new SuperPanel();
 		
-		frame.setSize(600, 600);
+		frame.setSize(600, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(superPanel);
 		frame.setVisible(true);

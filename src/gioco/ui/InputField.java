@@ -1,34 +1,35 @@
 package gioco.ui;
 
-import java.util.ArrayList;
-
 import javax.swing.JTextField;
 
 public class InputField extends JTextField{
 	private static final long serialVersionUID = 2;
+	
+	private static final int LUNGHEZZA_RIGA = 9;
 
-	private String input;
+	private String stringaInseritaDaUtente;
 
 	public InputField(String testo) {
 		super(testo);
 	}
 
 	public void readFromField() {
-		this.input = getText();
+		this.stringaInseritaDaUtente = getText();
 	}
 
 //	public String getInput() {
 //		return input;
 //	}
 
-	public int calcolaPunteggio(ArrayList<String> arrayList) {
+	public int calcolaPunteggio(String verifica) {
 		int punteggio = 0;
 		
 		readFromField();
-		System.out.println(input);		//DEBUG
-		for (int i = 0; i < input.length(); i++) {
-			if(arrayList.contains(input.charAt(i))){
-				switch (input.charAt(i)) {
+//		System.out.println(input);		//DEBUG
+		for (int i = 0; i < stringaInseritaDaUtente.length(); i++) {
+//			verifica = arrayList.subList(i, i+LUNGHEZZA_RIGA).toString();
+			if(verifica.contains(stringaInseritaDaUtente.toUpperCase())){
+				switch (stringaInseritaDaUtente.charAt(i)) {
 				case 'Q':
 					punteggio += 2;
 					break;
@@ -45,4 +46,5 @@ public class InputField extends JTextField{
 		}
 		return punteggio;
 	}
+	
 }

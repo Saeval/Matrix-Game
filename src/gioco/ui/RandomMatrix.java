@@ -2,17 +2,16 @@ package gioco.ui;
 
 import gioco.RandomLettersGenerator;
 import java.util.ArrayList;
-
 import javax.swing.JTextArea;
 
 public class RandomMatrix extends JTextArea{
 	private static final long serialVersionUID = 1;
 	
-	private static final int DIMENSIONE_LATO = 9;
-	private static final int NUMERO_MINIMO_VOCALI = 45;
+	public static final int DIMENSIONE_LATO = 9;
+	public static final int NUMERO_MINIMO_VOCALI = 45;
 	
 	private RandomLettersGenerator randomizer = new RandomLettersGenerator();
-	private ArrayList<String> lettersInMatrix = new ArrayList<String>();
+	private ArrayList<Character> lettersInMatrix = new ArrayList<Character>(DIMENSIONE_LATO*DIMENSIONE_LATO);
 	
 	public RandomMatrix() {
 		super();
@@ -34,11 +33,30 @@ public class RandomMatrix extends JTextArea{
 				append("\n");
 			
 			append(lettersInMatrix.get(i).toString());
-			System.out.print(lettersInMatrix);
 		}
 	}
 	
-	public ArrayList<String> getLettersInMatrix() {
+	public String getParolaOrizzontale(int riga, ArrayList<Character> arrayList){
+//		String parola = arrayList.subList(i, DIMENSIONE_LATO).toString();
+		StringBuilder builder = new StringBuilder(DIMENSIONE_LATO);
+		
+		for (int i = 0; i < DIMENSIONE_LATO; i++) {
+			builder.append(arrayList.get(riga+i));
+//			System.out.println(builder);
+		}
+		return builder.toString();
+	}
+	
+	public String getParolaVerticale(int offset, ArrayList<Character> arrayList){
+		StringBuilder builder = new StringBuilder(DIMENSIONE_LATO);
+		
+		for(int i=0; i < DIMENSIONE_LATO; i++)
+			builder.append(arrayList.get((i*DIMENSIONE_LATO)+offset).toString());
+		
+		return builder.toString();
+	}
+	
+	public ArrayList<Character> getLettersInMatrix() {
 		return lettersInMatrix;
 	}
 	
